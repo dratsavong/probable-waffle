@@ -1,4 +1,10 @@
-h1, h3, span {
- font-family: 'Times New Roman', Times, serif
+h1, h3, td {
+    font-family: 'Times New Roman', Times, serif
+}
+
+td, th, table {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
 }
 
