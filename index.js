@@ -34,7 +34,7 @@ const managerPrompts = () => {
       console.log(answers);
       const manager = new Manager(answers.name, answers.Id, answers.email, answers.officeNumber);
       team.push(manager);
-      roleChoice()
+      roleChoice();
   });
 }
 
@@ -43,17 +43,19 @@ const roleChoice = () => {
   .prompt([
     {
       type: "list",
-      name: "role",
+      name: "roleChoice",
       message: "What is your role?",
       choices: ["engineer","intern"],
     },
   ])
   .then((answer) => {
     console.log(answer);
-    if (answer.userChoice === "engineer"){
+    if (answer.roleChoice === "engineer"){
       addEngineer();
-    } else if (answer.userchoice === "intern") {
+    } else if (answer.roleChoice === "intern") {
       addIntern();
+    } else {
+      addTeamMember();
     }
   })
 }
@@ -84,11 +86,12 @@ const addEngineer = () => {
     ])
     .then((answers) => {
       console.log(answers);
-      const engineer = new Engineer (answers.name, answers.Id, answers.email, answers.officeNumber);
+      const engineer = new Engineer (answers.name, answers.Id, answers.email, answers.github);
       team.push(engineer);
-  });
+      addTeamMember();
+    }
+  );
 }
-
 
 const addIntern = () => {
   return inquirer
@@ -118,41 +121,20 @@ const addIntern = () => {
       console.log(answers);
       const intern = new Intern (answers.name, answers.Id, answers.email, answers.school);
       team.push(intern);
-  });
+      addTeamMember();
+    }
+  );
 }
 
+function addTeamMember()  {
+  console.log(team);
+    
+  fs.writeFileSync(path.join(__dirname, 'dist/index.html'),renderPage(team), 'utf-8');
 
-  
-
-/* const htmlPageContent = generateHTML(answers);
-
-    fs.writeFile('generatedIndex.html', htmlPageContent, (err) =>
+  fs.writeFile('generatedIndex.html', htmlPageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
     );
-  });
+}
+  
+managerPrompts();
 
-
-const generateHTML = ({ name, location, github, linkedin }) =>
-  `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${name}</h1>
-    <p class="lead">I am from ${location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${github}</li>
-      <li class="list-group-item">LinkedIn: ${linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
- */
