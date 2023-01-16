@@ -7,72 +7,124 @@ const team = [];
 const renderPage = require("./src/teamGenerator");;
 
 const managerPrompts = () => {
-    return inquirer
-    .prompt([
-        {
-            type: "input",
-            name: "name",
-            message: "What is the managers name?",
-          },
-          {
-            type: "input",
-            name: "id",
-            message: "What is the managers Id number?",
-          },
-          {
-            type: "input",
-            name: "email",
-            message: "What is the managers email address?",
-          },
-          {
-            type: "input",
-            name: "officeNumber",
-            message: "What is the managers Office number?",
-          },
-    ])
-    .then((answers) => {
-        console.log(answers);
-        const manager = new Manager(answers.name, answers.Id, answers.email, answers.officeNumber);
-        team.push(manager);
-      });
-}
-
-
-inquirer
+  return inquirer
   .prompt([
     {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?',
+      type: "input",
+      name: "name",
+      message: "What is the managers name?",
     },
     {
-      type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
+      type: "input",
+      name: "id",
+      message: "What is the managers Id number?",
     },
     {
-      type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
+      type: "input",
+      name: "email",
+      message: "What is the managers email address?",
     },
     {
-      type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
-    },
-    {
-      type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
+      type: "input",
+      name: "officeNumber",
+      message: "What is the managers Office number?",
     },
   ])
   .then((answers) => {
-    const htmlPageContent = generateHTML(answers);
+      console.log(answers);
+      const manager = new Manager(answers.name, answers.Id, answers.email, answers.officeNumber);
+      team.push(manager);
+      roleChoice()
+  });
+}
+
+const roleChoice = () => {
+  return inquirer
+  .prompt([
+    {
+      type: "list",
+      name: "role",
+      message: "What is your role?",
+      choices: ["engineer","intern"],
+    },
+  ])
+  .then((answer) => {
+    console.log(answer);
+    if (answer.userChoice === "engineer"){
+      addEngineer();
+    } else if (answer.userchoice === "intern") {
+      addIntern();
+    }
+  })
+}
+
+const addEngineer = () => {
+  return inquirer
+  .prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "What is the your name?",
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "What is your Id number?",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "What is your email address?",
+    },
+    {
+      type: "input",
+      name: "github",
+      message: "What is your github username?",
+    },
+    ])
+    .then((answers) => {
+      console.log(answers);
+      const engineer = new Engineer (answers.name, answers.Id, answers.email, answers.officeNumber);
+      team.push(engineer);
+  });
+}
+
+
+const addIntern = () => {
+  return inquirer
+  .prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "What is your name?",
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "What is your Id number?",
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "What is your email address?",
+    },
+    {
+      type: "input",
+      name: "schoolName",
+      message: "What is your school name?",
+    },
+    ])
+    .then((answers) => {
+      console.log(answers);
+      const intern = new Intern (answers.name, answers.Id, answers.email, answers.school);
+      team.push(intern);
+  });
+}
+
+
+  
+
+/* const htmlPageContent = generateHTML(answers);
 
     fs.writeFile('generatedIndex.html', htmlPageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created index.html!')
@@ -103,3 +155,4 @@ const generateHTML = ({ name, location, github, linkedin }) =>
 </div>
 </body>
 </html>`;
+ */
