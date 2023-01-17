@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts":{
+  "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url":"git+https://github.com/dratsavong/probable-waffle"
+    "url": "git+https://github.com/dratsavong/probable-waffle"
   },
   "keywords": [],
   "author": "",

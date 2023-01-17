@@ -19,18 +19,18 @@
             <div class="col">
               <div class="card text-center" style="width: 18rem;">
                     <div class="card-header text-light" style="background-color: rgba(99, 160, 76, 0.912);">
-                        <h1> Velma Dinkley</h1>
+                        <h1 id="managerName"></h1> </h1>
                         <h3>Manager ☕</h3>
                     </div>
                     <div class="card-body" style="background-color: rgba(103, 103, 103, 0.039);">
                         <table style="width: 100%; background-color: white;">
                             <tr>
-                                <td>ID: 1</td>
+                                <td id="managerID">ID: </td>
                             </tr>
                              <tr>
-                                <td> EMAIL: <a href="mailto:velma@mail.com">Velma@mail.com</a> </td>
+                                <td id="managerEmail">EMAIL: <a href="mailto: "> </a> </td>
                             <tr>
-                                <td>OFFICE #: 3</td>
+                                <td id="officeNumber">OFFICE #: </td>
                             </tr>
                         </table>
                     </div>
@@ -39,18 +39,19 @@
             <div class="col">
               <div class="card text-center  mx-auto" style="width: 18rem;">
                     <div class="card-header text-light" style="background-color: rgba(99, 160, 76, 0.912);"> 
-                        <h1> Daphne Blake  </h1>
-                        <h3>Engineer 👓</h3>
+                    <h1 id="engineerName">  </h1>
+                    <h3>Engineer 👓</h3>
                     </div>
                     <div class="card-body" style="background-color: rgba(103, 103, 103, 0.039);">
                         <table style="width: 100%; background-color: white;">
                             <tr>
-                                <td>ID: 2</td>
+                                <td id="engineerId">ID: </td>
                             </tr>
                             <tr>
-                                <td> EMAIL: <a href="mailto:Daphne@mail.com">Daphne@mail.com</a> </td>
+                                <td id="engineerEmail"> EMAIL: <a href="mailto:  "> </a></td>
+                            </tr>
                             <tr>
-                                <td> GITHUB: <a href="Github.com/Daphne">Github.com/Daphne</a> </td>
+                                <td id="github"> GITHUB: <a href=" "> </a></td>
                             </tr>
                         </table>
                     </div>
@@ -59,18 +60,19 @@
             <div class="col">
               <div class="card text-center  mx-auto" style="width: 18rem;">
                     <div class="card-header text-light" style="background-color: rgba(99, 160, 76, 0.912);">
-                        <h1> Fred Jones</h1>
-                        <h3>Engineer 👓</h3>
+                    <h1 id="engineerName">  </h1>
+                    <h3>Engineer 👓</h3>
                     </div>
                     <div class="card-body" style="background-color: rgba(103, 103, 103, 0.039);">
                         <table style="width: 100%; background-color: white;">
                             <tr>
-                                <td>ID: 3</td>
+                                <td id="engineerId">ID: </td>
                             </tr>
                             <tr>
-                                <td> EMAIL: <a href="mailto:Fred@mail.com">Fred@mail.com</a> </td>
+                                <td id="engineerEmail"> EMAIL: <a href="mailto:  "> </a></td>
+                            </tr>
                             <tr>
-                                <td> GITHUB: <a href="Github.com/Fred">Github.com/Fred</a> </td>
+                                <td id="github"> GITHUB: <a href=" "> </a></td>
                             </tr>
                         </table>
                     </div>
@@ -79,19 +81,19 @@
             <div class="col">
               <div class="card text-center mx-auto" style="width: 18rem;">
                     <div class="card-header text-light" style="background-color: rgba(99, 160, 76, 0.912);">
-                    <h1> Shaggy Rogers </h1>
+                    <h1 id="engineerName">  </h1>
                     <h3>Engineer 👓</h3>
                     </div>
                     <div class="card-body" style="background-color: rgba(103, 103, 103, 0.039);">
                         <table style="width: 100%; background-color: white;">
                             <tr>
-                                <td>ID: 4</td>
+                                <td id="engineerId">ID: </td>
                             </tr>
                             <tr>
-                                <td> EMAIL: <a href="mailto:Shaggy@mail.com">Shaggy@mail.com</a></td>
+                                <td id="engineerEmail"> EMAIL: <a href="mailto:  "> </a></td>
                             </tr>
                             <tr>
-                                <td> GITHUB: <a href="Github.com/Shaggy">Github.com/Shaggy</a> </td>
+                                <td id="github"> GITHUB: <a href=" "> </a></td>
                             </tr>
                         </table>
                     </div>
@@ -100,18 +102,18 @@
             <div class="col">
                 <div class="card text-center mx-auto" style="width: 18rem;">
                     <div class="card-header text-light" style="background-color: rgba(99, 160, 76, 0.912);">
-                        <h1> Scoobert Doo </h1>
+                        <h1 id="internName"></h1>  
                         <h3>Intern 📖</h3>
                     </div>
                     <div class="card-body" style="background-color: rgba(103, 103, 103, 0.039);">
                         <table style="width: 100%; background-color: white;">
                             <tr>
-                                <td>ID: 5</td>
+                                <td id="internID">ID: </td>
                             </tr>
                             <tr>
-                                <td> EMAIL: <a href="mailto:Scoobert@mail.com">Scoobert@mail.com</a> </td>
+                                <td id="internEmail"> EMAIL: <a href="mailto: "> </a></td>
                             <tr>
-                                <td>SCHOOL: Harvard University</td>
+                                <td id="school">SCHOOL: </td>
                             </tr>
                         </table>
                   </div>
@@ -120,4 +122,8 @@
         </div>
     </container>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+crossorigin="anonymous"></script>
 </html>

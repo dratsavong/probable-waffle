@@ -4,7 +4,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const team = [];
-const renderPage = require("./src/teamGenerator");;
+const generateHTML = require("./src/teamGenerator");;
 
 const managerPrompts = () => {
   return inquirer
@@ -121,20 +121,28 @@ const addIntern = () => {
       console.log(answers);
       const intern = new Intern (answers.name, answers.Id, answers.email, answers.school);
       team.push(intern);
-      addTeamMember();
+      createTeam();
     }
   );
 }
-
-function addTeamMember()  {
-  console.log(team);
-    
-  fs.writeFileSync(path.join(__dirname, 'dist/index.html'),renderPage(team), 'utf-8');
-
-  fs.writeFile('generatedIndex.html', htmlPageContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created index.html!')
-    );
+function createTeam() {
+const writeFile = data => {
+  fs.writeFile('./dist/index.html', data, err => {
+    if (err) {
+        console.log(err);
+        return;
+    } else {
+        console.log("Successfully created index.html!");
+    }
+  })
+  .then(team => {
+    return generateHTML(team);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
 }
-  
-managerPrompts();
+}
+
+managerPrompts()
 
